@@ -1,0 +1,21 @@
+.navBar{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.navBar ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding: 0.5rem;
+}
+.navBar ul li {
+    list-style: none;
+    margin: 0 1rem;
+    font-size:1.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}

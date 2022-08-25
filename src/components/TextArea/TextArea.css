@@ -1,0 +1,64 @@
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.buttonSection {
+    width: 85vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.buttonSection button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+.buttonSection button svg {
+    height: 0.75rem;
+    width:  0.75rem;
+}
+
+
+/* Text summary section starts */
+.TextSummary {
+    width: 85vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: column;
+    align-items: left;
+    padding: 1rem;
+    
+}
+.ViewText {
+    width: 85vw;
+    margin: 1rem 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.previewHeading {
+    width: 100%;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, #7F53AC, #647DEE);
+    border-image-slice: 1;
+}
+.previewHeading h3 {
+    margin: 0.2rem;
+    margin-left: 0;
+}
+
