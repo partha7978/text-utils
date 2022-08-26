@@ -1,0 +1,28 @@
+.textContainer {
+    width: auto;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.textContainer span {
+    background-image: linear-gradient(to right, #7F53AC, #647DEE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 700px) {
+    .textContainer {
+        margin-top: 2rem;
+    }   
+    .textContainer span {
+        font-size: 1.7rem;
+    }
+}
