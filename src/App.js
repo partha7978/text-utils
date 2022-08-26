@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar logoName="TEXTUTIL"/>
-      <AnimatedText text="Welcome to TextUtils"/>
+      <AnimatedText text="Welcome to TextUtils" secondaryText="I can do all kind of text manipulations"/>
       <TextArea label="Enter text here" />
     </>
   );
