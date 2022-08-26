@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import './AnimatedText.css'
 
 export default function AnimatedText({text}) {
+    //?for framer motion
     const words = text.split(" ");
-
     // Variants for Container of words.
       const container = {
         hidden: { opacity: 0 },
@@ -36,6 +36,7 @@ export default function AnimatedText({text}) {
           },
         },
       };
+    //?for framer motion
     
   return (
     <motion.div
