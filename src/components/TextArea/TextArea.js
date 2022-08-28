@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import './TextArea.css';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 export default function TextArea(props) {
   //using state to store input value 
@@ -59,7 +61,11 @@ export default function TextArea(props) {
             </svg>
           Clear
           </button>
-         
+        </div>
+        <div className="alertMsg">
+          <Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert severity="success">Here I'm showing the success/error/alert/info message.</Alert>
+          </Stack>
         </div>
         <div className="TextSummarySection">
           <div className="TextSummary">

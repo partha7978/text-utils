@@ -9,6 +9,7 @@
 }
 .buttonSection {
     width: 85vw;
+    margin: 0.5rem 0;
     height: auto;
     display: flex;
     flex-wrap: wrap;
@@ -29,6 +30,11 @@
     width:  0.75rem;
 }
 
+/* alert msg section starts */
+.alertMsg {
+    width: 85vw;
+    margin: 0.5rem 0;
+}
 
 /* Text summary section starts */
 .TextSummary {
