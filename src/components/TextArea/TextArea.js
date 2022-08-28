@@ -9,11 +9,21 @@ export default function TextArea(props) {
   //using state to store input value 
   const [text, setText] = useState('');
 
+  //using state to store alert message
+  const [alertStatus, setAlertStatus] = useState('none');
+  const [aLertMsg, setALertMsg] = useState("");
+
   const onTextChange = (e) => {
     setText(e.target.value);
   }
+  
   const changeToUpperCase = () => {
     setText(text.toLocaleUpperCase());
+    setALertMsg("Text changed to upper case");
+    setAlertStatus('block');
+    setTimeout(() => {
+      setAlertStatus('none');
+    } , 1500);
   }
   const changeToLowerCase =() => {
     setText(text.toLocaleLowerCase());
@@ -63,9 +73,11 @@ export default function TextArea(props) {
           </button>
         </div>
         <div className="alertMsg">
-          <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="success">Here I'm showing the success/error/alert/info message.</Alert>
-          </Stack>
+          <div style={{display: alertStatus}}>
+            <Stack sx={{ width: '100%'}} spacing={2}>
+              <Alert severity="success">{aLertMsg}</Alert>
+            </Stack>
+          </div>
         </div>
         <div className="TextSummarySection">
           <div className="TextSummary">
