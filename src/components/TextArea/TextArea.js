@@ -75,7 +75,7 @@ export default function TextArea(props) {
           Clear
           </button>
           <button onClick = {capitalizeFirstLetter}>
-            capitalizeFirstLetter
+            CapitalizeFirstLetter
           </button>
         </div>
         <div className="alertMsg">

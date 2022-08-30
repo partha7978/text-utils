@@ -24,6 +24,7 @@
     border: 1px solid #ccc;
     font-size: 0.75rem;
     cursor: pointer;
+    margin: 0.2rem 0.5rem 0.2rem 0;
 }
 .buttonSection button svg {
     height: 0.75rem;
@@ -33,6 +34,7 @@
 /* alert msg section starts */
 .alertMsg {
     width: 85vw;
+    height: 4.5vh;
     margin: 0.5rem 0;
 }
 
