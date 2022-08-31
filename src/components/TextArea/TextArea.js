@@ -8,9 +8,7 @@ import Stack from '@mui/material/Stack';
 export default function TextArea(props) {
   //using state to store input value 
   const [text, setText] = useState('');
-  //using state to store alert message
-  const [alertStatus, setAlertStatus] = useState('none');
-  const [aLertMsg, setALertMsg] = useState("");
+  const [alertType, setAlertType] = useState({alertStatus: 'none', alertMsg:"", alertType:""});
 
   const onTextChange = (e) => {
     setText(e.target.value);
@@ -18,10 +16,9 @@ export default function TextArea(props) {
   
   const changeToUpperCase = () => {
     setText(text.toLocaleUpperCase());
-    setALertMsg("Text changed to upper case");
-    setAlertStatus('block');
+    setAlertType({alertStatus: 'block', alertMsg:"Text changed to upper case", alertType:"success"});
     setTimeout(() => {
-      setAlertStatus('none');
+      setAlertType({alertStatus: 'none', alertMsg:"", alertType:""});
     } , 1500);
   }
   const changeToLowerCase =() => {
@@ -41,8 +38,7 @@ export default function TextArea(props) {
     }
     else {
       setText(text);
-      setALertMsg("Please enter some text / clear the text to undo");
-      setAlertStatus('block');
+      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text / clear the text to undo", alertType:"warning"});
     }
   }
   return (
@@ -95,9 +91,9 @@ export default function TextArea(props) {
           </button>
         </div>
         <div className="alertMsg">
-          <div style={{display: alertStatus}}>
+          <div style={{display: alertType.alertStatus}}>
             <Stack sx={{ width: '100%'}} spacing={2}>
-              <Alert severity="success">{aLertMsg}</Alert>
+              <Alert severity={alertType.alertType}>{alertType.alertMsg}</Alert>
             </Stack>
           </div>
         </div>
