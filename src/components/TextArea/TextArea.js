@@ -38,7 +38,19 @@ export default function TextArea(props) {
     }
     else {
       setText(text);
-      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text / clear the text to undo", alertType:"warning"});
+      if(text.length === 0) {
+        setAlertType({alertStatus: 'block', alertMsg:"No text to undo", alertType:"warning"});
+        setTimeout(() => {
+          setAlertType({alertStatus: 'none', alertMsg:"", alertType:""});
+        } , 1500);
+      }
+      else {
+        setAlertType({alertStatus: 'block', alertMsg:"Please clear the text first", alertType:"warning"});
+        setTimeout(() => {
+          setAlertType({alertStatus: 'none', alertMsg:"", alertType:""});
+        } , 1500);
+      }
+      // setAlertType({alertStatus: 'block', alertMsg:"Please enter some text / clear the text to undo", alertType:"warning"});
     }
   }
   return (
