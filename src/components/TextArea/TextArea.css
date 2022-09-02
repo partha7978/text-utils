@@ -21,10 +21,17 @@
     padding: 6px 10px;
     margin-right: 0.5rem;
     border-radius: 5px;
+    background-color: #ffffff;
     border: 1px solid #ccc;
     font-size: 0.75rem;
     cursor: pointer;
     margin: 0.2rem 0.5rem 0.2rem 0;
+    color:#000000;
+    transition: all 0.2s linear;
+}
+.buttonSection button:hover {
+    color: #647DEE;
+    border-color: #647DEE;
 }
 .buttonSection button svg {
     height: 0.75rem;
