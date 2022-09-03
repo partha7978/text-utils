@@ -18,11 +18,25 @@ export default function TextArea(props) {
   }
   
   const changeToUpperCase = () => {
+   if(text.length === 0){
+     setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
+     setTimeout(() => {
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+   }
+   else if(text.toUpperCase()) {
+      setAlertType({alertStatus: 'block', alertMsg:"Already text is in uppercase", alertType:"warning"});
+      setTimeout(() => {
+          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+        }, 1500);
+   }
+   else {
     setText(text.toLocaleUpperCase());
-    setAlertType({alertStatus: 'block', alertMsg:"Text changed to upper case", alertType:"success"});
+    setAlertType({alertStatus: 'block', alertMsg:"Converted to uppercase", alertType:"success"});
     setTimeout(() => {
-      setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-    } , 1500);
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+   }
   }
   const changeToLowerCase =() => {
     setText(text.toLocaleLowerCase());
