@@ -24,7 +24,7 @@ export default function TextArea(props) {
         setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
       }, 1500);
    }
-   else if(text.toUpperCase()) {
+   else if(text.split('').map(char => char.toUpperCase()).join('') === text){
       setAlertType({alertStatus: 'block', alertMsg:"Already text is in uppercase", alertType:"warning"});
       setTimeout(() => {
           setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
