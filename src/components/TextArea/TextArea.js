@@ -8,7 +8,10 @@ import Stack from '@mui/material/Stack';
 export default function TextArea(props) {
   //using state to store input value 
   const [text, setText] = useState('');
-  const [alertType, setAlertType] = useState({alertStatus: 'none', alertMsg:"", alertType:""});
+  const [alertType, setAlertType] = useState({alertStatus: 'none', alertMsg:"", alertType:"success"});
+  //? Here in the alertType Ive provided a default value of success instead of "" Because it's showing error in console that
+  //todo: Warning: Failed prop type: Invalid prop `severity` of value `` supplied to `ForwardRef(Alert)`, expected one of ["error","info","success","warning"].
+  
 
   const onTextChange = (e) => {
     setText(e.target.value);
@@ -18,7 +21,7 @@ export default function TextArea(props) {
     setText(text.toLocaleUpperCase());
     setAlertType({alertStatus: 'block', alertMsg:"Text changed to upper case", alertType:"success"});
     setTimeout(() => {
-      setAlertType({alertStatus: 'none', alertMsg:"", alertType:""});
+      setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
     } , 1500);
   }
   const changeToLowerCase =() => {
@@ -27,6 +30,7 @@ export default function TextArea(props) {
   const capitalizeFirstLetter = () => {
     setText(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "));
   }
+
   const clearText = () => {
     window.saveText = text;
     setText("");
@@ -41,13 +45,13 @@ export default function TextArea(props) {
       if(text.length === 0) {
         setAlertType({alertStatus: 'block', alertMsg:"No text to undo", alertType:"warning"});
         setTimeout(() => {
-          setAlertType({alertStatus: 'none', alertMsg:"", alertType:""});
+          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
         } , 1500);
       }
       else {
         setAlertType({alertStatus: 'block', alertMsg:"Please clear the text first", alertType:"warning"});
         setTimeout(() => {
-          setAlertType({alertStatus: 'none', alertMsg:"", alertType:""});
+          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
         } , 1500);
       }
       // setAlertType({alertStatus: 'block', alertMsg:"Please enter some text / clear the text to undo", alertType:"warning"});
