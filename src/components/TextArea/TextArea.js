@@ -27,29 +27,29 @@ export default function TextArea(props) {
    else if(text.split('').map(char => char.toUpperCase()).join('') === text){
       setAlertType({alertStatus: 'block', alertMsg:"Already text is in uppercase", alertType:"warning"});
       setTimeout(() => {
-          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-        }, 1500);
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
    }
    else {
     setText(text.toLocaleUpperCase());
     setAlertType({alertStatus: 'block', alertMsg:"Converted to uppercase", alertType:"success"});
     setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+    }, 1500);
    }
   }
   const changeToLowerCase =() => {
     if(text.length === 0){
       setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
       setTimeout(() => {
-         setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-       }, 1500);
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
     }
     else if(text.split('').map(char => char.toLowerCase()).join('') === text){
        setAlertType({alertStatus: 'block', alertMsg:"Already text is in lowercase", alertType:"warning"});
        setTimeout(() => {
-           setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-         }, 1500);
+          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+        }, 1500);
     }
     else {
      setText(text.toLocaleLowerCase());
@@ -61,6 +61,25 @@ export default function TextArea(props) {
   }
   const capitalizeFirstLetter = () => {
     setText(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "));
+    if(text.length === 0) {
+      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
+      setTimeout(() => {
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+    }
+    else if(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") === text) {
+      setAlertType({alertStatus: 'block', alertMsg:"Already the words are capitalized", alertType:"warning"});
+      setTimeout(() => {
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+    }
+    else {
+      setText(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "));
+      setAlertType({alertStatus: 'block', alertMsg:"Words capitalized", alertType:"success"});
+      setTimeout(() => {
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+    }
   }
   const trimText = () => {
     setText(text.split(" ").filter(word => word !== "").join(" "));
@@ -212,7 +231,6 @@ export default function TextArea(props) {
             <span>{text}</span>
           </div>
         </div>
-      
     </div>
   );
 }
