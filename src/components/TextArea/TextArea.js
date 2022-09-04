@@ -39,7 +39,25 @@ export default function TextArea(props) {
    }
   }
   const changeToLowerCase =() => {
-    setText(text.toLocaleLowerCase());
+    if(text.length === 0){
+      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
+      setTimeout(() => {
+         setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+       }, 1500);
+    }
+    else if(text.split('').map(char => char.toLowerCase()).join('') === text){
+       setAlertType({alertStatus: 'block', alertMsg:"Already text is in lowercase", alertType:"warning"});
+       setTimeout(() => {
+           setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+         }, 1500);
+    }
+    else {
+     setText(text.toLocaleLowerCase());
+     setAlertType({alertStatus: 'block', alertMsg:"Converted to lowercase", alertType:"success"});
+     setTimeout(() => {
+         setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+       }, 1500);
+    }
   }
   const capitalizeFirstLetter = () => {
     setText(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "));
@@ -61,8 +79,21 @@ export default function TextArea(props) {
     }
   }
   const clearText = () => {
-    window.saveText = text;
-    setText("");
+    if(text.length === 0) {
+      setAlertType({alertStatus: 'block', alertMsg:"Nothing to clear", alertType:"warning"});
+      setTimeout(() => {
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+    }
+    else {
+      setText("");
+      window.saveText = text;
+      setText(""); 
+      setAlertType({alertStatus: 'block', alertMsg:"Text cleared", alertType:"success"});
+      setTimeout(() => {
+        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
+      }, 1500);
+    }
   }
   const UndoText = () => {
     if(window.saveText !== undefined) {
