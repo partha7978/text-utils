@@ -16,122 +16,83 @@ export default function TextArea(props) {
   const onTextChange = (e) => {
     setText(e.target.value);
   }
-  
-  const changeToUpperCase = () => {
-   if(text.length === 0){
-     setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
-     setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
-   }
-   else if(text.split('').map(char => char.toUpperCase()).join('') === text){
-      setAlertType({alertStatus: 'block', alertMsg:"Already text is in uppercase", alertType:"warning"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
-   }
-   else {
-    setText(text.toLocaleUpperCase());
-    setAlertType({alertStatus: 'block', alertMsg:"Converted to uppercase", alertType:"success"});
+  const showAlertMsg = (alertMsg, alertType) => {
+    setAlertType({alertStatus:'block', alertMsg:alertMsg, alertType: alertType});
     setTimeout(() => {
       setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
     }, 1500);
+  }
+  const changeToUpperCase = () => {
+   if(text.length === 0){
+    showAlertMsg("Please enter some text", "warning");
+   }
+   else if(text.split('').map(char => char.toUpperCase()).join('') === text){
+      showAlertMsg("Already text is in uppercase", "warning");
+   }
+   else {
+    setText(text.toLocaleUpperCase());
+    showAlertMsg("Converted to uppercase", "success");
    }
   }
   const changeToLowerCase =() => {
     if(text.length === 0){
-      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      showAlertMsg("Please enter some text", "warning");
     }
     else if(text.split('').map(char => char.toLowerCase()).join('') === text){
-       setAlertType({alertStatus: 'block', alertMsg:"Already text is in lowercase", alertType:"warning"});
-       setTimeout(() => {
-          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-        }, 1500);
+      showAlertMsg("Already text is in lowercase", "warning");
     }
     else {
      setText(text.toLocaleLowerCase());
-     setAlertType({alertStatus: 'block', alertMsg:"Converted to lowercase", alertType:"success"});
-     setTimeout(() => {
-         setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-       }, 1500);
+     showAlertMsg("Converted to lowercase", "success");
     }
   }
   const capitalizeFirstLetter = () => {
     setText(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "));
     if(text.length === 0) {
-      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"error"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      showAlertMsg("Please enter some text", "warning");
     }
     else if(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") === text) {
-      setAlertType({alertStatus: 'block', alertMsg:"Already the words are capitalized", alertType:"warning"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+     showAlertMsg("Already the words are capitalized", "warning");
     }
     else {
       setText(text.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "));
-      setAlertType({alertStatus: 'block', alertMsg:"Words capitalized", alertType:"success"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      showAlertMsg("Words capitalized", "success");
     }
   }
   const trimText = () => {
     setText(text.split(" ").filter(word => word !== "").join(" "));
     // setText(text.split(/[  ]+/).join(" "));   OR USE THIS
    if(text.length > 0){
-    setAlertType({alertStatus: 'block', alertMsg:"Extra space removed", alertType:"success"});
-    setTimeout(() => {
-      setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-    }, 1500);
+    showAlertMsg("Extra space removed", "success");
     }
     else{
-      setAlertType({alertStatus: 'block', alertMsg:"Please enter some text", alertType:"warning"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      showAlertMsg("Please enter some text", "warning");
     }
   }
   const clearText = () => {
     if(text.length === 0) {
-      setAlertType({alertStatus: 'block', alertMsg:"Nothing to clear", alertType:"warning"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      showAlertMsg("Nothing to clear", "warning");
     }
     else {
       setText("");
       window.saveText = text;
       setText(""); 
-      setAlertType({alertStatus: 'block', alertMsg:"Text cleared", alertType:"success"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      }, 1500);
+      showAlertMsg("Text cleared", "success");
     }
   }
   const UndoText = () => {
     if(window.saveText !== undefined) {
       setText(window.saveText);
       window.saveText = undefined;
+      showAlertMsg("Undo", "success");
     }
     else {
       setText(text);
       if(text.length === 0) {
-        setAlertType({alertStatus: 'block', alertMsg:"No text found for undo", alertType:"warning"});
-        setTimeout(() => {
-          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-        } , 1500);
+        showAlertMsg("No text found for undo", "warning");
       }
       else {
-        setAlertType({alertStatus: 'block', alertMsg:"Please clear the text first", alertType:"warning"});
-        setTimeout(() => {
-          setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-        } , 1500);
+       showAlertMsg("Please clear the text first", "warning");
       }
       // setAlertType({alertStatus: 'block', alertMsg:"Please enter some text / clear the text to undo", alertType:"warning"});
     }
@@ -140,16 +101,10 @@ export default function TextArea(props) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(text);
     if(text.length === 0) {
-      setAlertType({alertStatus: 'block', alertMsg:"No text found for copy", alertType:"error"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      } , 1500);
+      showAlertMsg("No text found for copy", "error");
     }
     else {
-      setAlertType({alertStatus: 'block', alertMsg:"Text copied to clipboard", alertType:"success"});
-      setTimeout(() => {
-        setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-      } , 1500);
+      showAlertMsg("Text copied to clipboard", "success");
     }
   }
    
