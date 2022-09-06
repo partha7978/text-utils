@@ -2,25 +2,38 @@ import React, {useState} from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import './TextArea.css';
-import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+// for popup msg
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 
 export default function TextArea(props) {
-  //using state to store input value 
+  //* using state to store input value 
   const [text, setText] = useState('');
-  const [alertType, setAlertType] = useState({alertStatus: 'none', alertMsg:"", alertType:"success"});
-  //? Here in the alertType Ive provided a default value of success instead of "" Because it's showing error in console that
-  //todo: Warning: Failed prop type: Invalid prop `severity` of value `` supplied to `ForwardRef(Alert)`, expected one of ["error","info","success","warning"].
-  
+  //* alert msg starts
+  const [alertType, setAlertType] = useState({alertStatus: false, alertMsg:"", alertType:""});
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setAlertType({alertStatus: false});
+  };
+  const showAlertMsg = (alertMsg, alertType) => {
+    setAlertType({alertStatus: true, alertMsg:alertMsg, alertType: alertType});
+    setTimeout(() => {
+      setAlertType({alertStatus: false,alertMsg:alertMsg, alertType: alertType});
+    }, 1500);
+  }
+  //* alert msg ends 
+  //! General operation functions
   const onTextChange = (e) => {
     setText(e.target.value);
-  }
-  const showAlertMsg = (alertMsg, alertType) => {
-    setAlertType({alertStatus:'block', alertMsg:alertMsg, alertType: alertType});
-    setTimeout(() => {
-      setAlertType({alertStatus: 'none', alertMsg:"", alertType:"success"});
-    }, 1500);
   }
   const changeToUpperCase = () => {
    if(text.length === 0){
@@ -110,6 +123,15 @@ export default function TextArea(props) {
    
   return (
     <div className="container">
+    {/* for alert msg */}
+        <Stack spacing={2} sx={{ width: '100%' }}>
+          <Snackbar open={alertType.alertStatus} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity={alertType.alertType} sx={{ width: '100%' }}>
+              {alertType.alertMsg}
+            </Alert>
+          </Snackbar>
+        </Stack>
+        {/* for text area */}
         <Box
             component="form"
             sx={{
@@ -129,7 +151,6 @@ export default function TextArea(props) {
             placeholder="Write here"
             variant="filled"
             />
-
         </Box>
 
         <div className="buttonSection">
@@ -168,9 +189,6 @@ export default function TextArea(props) {
         </div>
         <div className="alertMsg">
           <div style={{display: alertType.alertStatus}}>
-            <Stack sx={{ width: '100%'}} spacing={2}>
-              <Alert severity={alertType.alertType}>{alertType.alertMsg}</Alert>
-            </Stack>
           </div>
         </div>
         <div className="TextSummarySection">
