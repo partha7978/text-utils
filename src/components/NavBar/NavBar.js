@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-export default function NavBar({logoName}) {
 
 
+export default function NavBar( props) {
   //?for framer motion 
-  const words = logoName.split('');
+  const words = props.logoName.split('');
    // Variants for Container of words.
    const container = {
     hidden: { opacity: 0 },
@@ -91,6 +91,7 @@ export default function NavBar({logoName}) {
 
 
   const handleChange = (event) => {
+    props.setTheme(event.target.checked);
     console.log(event.target.checked);
   };
   
@@ -115,7 +116,7 @@ export default function NavBar({logoName}) {
       </motion.ul>
       
       <FormControlLabel
-        control={<MaterialUISwitch onChange={handleChange} sx={{ m: 1 }} defaultUnChecked />}
+        control={<MaterialUISwitch checked={props.theme} onChange={handleChange} sx={{ m: 1 }} />}
       />
  
     </div>
