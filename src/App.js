@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import TextArea from './components/TextArea/TextArea';
 
 function App() {
+
   return (
     <>
       <NavBar logoName="TEXTUTIL"/>
