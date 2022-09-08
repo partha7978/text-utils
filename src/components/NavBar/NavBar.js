@@ -89,7 +89,7 @@ export default function NavBar( props) {
   }));
 
 
-
+//? for dark mode switch
   const handleChange = (event) => {
     props.setTheme(event.target.checked);
     console.log(event.target.checked);
