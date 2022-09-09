@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import './AnimatedText.css'
+import PropTypes from "prop-types";
 
 export default function AnimatedText({text, secondaryText}) {
     //?for framer motion
@@ -74,4 +75,9 @@ export default function AnimatedText({text, secondaryText}) {
     
   </motion.div>
   )
+}
+
+AnimatedText.propTypes = {
+  text: PropTypes.string.isRequired,
+  secondaryText: PropTypes.string.isRequired,
 }

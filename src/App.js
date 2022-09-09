@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <NavBar logoName="TEXTUTIL" theme={theme} setTheme={setTheme}/>
-      <AnimatedText text="Welcome to TextUtils" secondaryText="I can do all kind of text manipulations"/>
+      <AnimatedText text="Welcome to TextUtils" secondaryText="I can do all kind of text manipulations" theme={theme} setTheme={setTheme}/>
       <TextArea label="Enter text here" />
     </>
   );
