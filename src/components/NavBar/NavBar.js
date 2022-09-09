@@ -96,7 +96,7 @@ export default function NavBar( props) {
   };
   
   return (
-    <div className="navBar">
+    <div className="navBar" style={{backgroundColor: props.theme === true ? '#171717':'#ffffff'}}>
       <motion.ul
         className="navBarUl"
         style={{ overflow: "hidden", display: "flex", fontSize: "2rem" }}

@@ -10,8 +10,7 @@ function App() {
   const [theme, setTheme] = useState(false);
 
   if(theme === true) {
-    document.body.style.transition="background-color 0.3s ease-in";
-    document.body.style.backgroundColor = "#171717";
+    document.body.style.backgroundColor = "#000000";
     document.body.style.color = "#ffffff";
   }
   else {
