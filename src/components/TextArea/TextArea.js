@@ -141,6 +141,7 @@ export default function TextArea(props) {
             autoComplete="off"
         >
             <TextField
+            sx={{backgroundColor: props.theme === true ? '#171717':'#ffffff'}}
             onChange = {onTextChange}
             id="filled-multiline-static"
             label={props.label}
