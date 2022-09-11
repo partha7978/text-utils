@@ -32,6 +32,7 @@
 .buttonSection button:hover {
     color: #647DEE;
     border-color: #647DEE;
+    transform: translateY(-2px);
 }
 .buttonSection button svg {
     height: 0.75rem;
