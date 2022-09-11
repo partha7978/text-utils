@@ -120,7 +120,6 @@ export default function TextArea(props) {
       showAlertMsg("Text copied to clipboard", "success");
     }
   }
-   
   return (
     <div className="container">
     {/* for alert msg */}
@@ -141,11 +140,13 @@ export default function TextArea(props) {
             autoComplete="off"
         >
             <TextField
-            sx={{backgroundColor: props.theme === true ? '#171717':'#ffffff'}}
+            sx={{backgroundColor: props.theme === true ? '#171717':'#ffffff',"& label": {color: props.theme === true ? '#ffffff':'#000000'}}}
+            // sx={{"& label": {color: "secondary.main"}}}
             onChange = {onTextChange}
             id="filled-multiline-static"
             label={props.label}
             multiline
+            inputProps={{ style: { color: props.theme === true ? '#ffffff':'#000000' } }}
             rows={8}
             //   defaultValue="Default Value"
             value={text}
