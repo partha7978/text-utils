@@ -187,16 +187,11 @@ export default function TextArea(props) {
             </svg>
           Copy
           </button>
-        
-        </div>
-        <div className="alertMsg">
-          <div style={{display: alertType.alertStatus}}>
-          </div>
         </div>
         <div className="TextSummarySection">
           <div className="TextSummary">
             <h3>Your Text Summary</h3>
-            <span><b>{text.length < 1 && text.includes('') ? 0 : text.split(' ').length }</b>words & <b>{text.length}</b> characters</span>
+            <span><b>{text.length < 1 && text.includes('') ? 0 : text.split(' ').length }</b> words & <b>{text.length}</b> characters</span>
             <span><b>{0.008 * (text.length < 1 && text.includes('') ? 0 : text.split(' ').length)}</b> minutes reading time</span>
           </div>
           <div className="ViewText">
