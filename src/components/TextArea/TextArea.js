@@ -135,13 +135,13 @@ export default function TextArea(props) {
           <Box
             component="form"
             sx={{
-            "& .MuiTextField-root": { m: 1, width: "85vw" },
+            "& .MuiTextField-root": { m: 1, width: "85vw" },  borderRadius: "10px"
             }}
             noValidate
             autoComplete="off"
         >
             <TextField
-            sx={{backgroundColor: props.theme === true ? '#171717':'#ffffff',"& label": {color: props.theme === true ? '#ffffff':'#000000'}}}
+            sx={{backgroundColor: props.theme === true ? '#171717':'#F0F0F0',"& label": {color: props.theme === true ? '#ffffff':'#000000'},  borderRadius: "10px"}}
             // sx={{"& label": {color: "secondary.main"}}}
             onChange = {onTextChange}
             id="filled-multiline-static"
