@@ -69,6 +69,9 @@
     border-radius: 10px;
     border: 1px solid #ccc;
 }
+.ViewText {
+    overflow: auto;
+}
 .previewHeading {
     width: 100%;
     border-bottom: 2px solid transparent;

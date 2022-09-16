@@ -16,3 +16,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* SCROLL BAR STARTS */
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar:hover {
+  width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 20px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: -webkit-linear-gradient(315deg, #8490ff 0%, #62bdfc 74%);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: -webkit-linear-gradient(315deg, #8490ff 0%, #62bdfc 74%);
+}
+/* SCROLL BAR ENDS */
