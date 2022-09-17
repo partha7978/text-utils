@@ -1,0 +1,28 @@
+.footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.footer p {
+    margin: 1rem;
+    font-weight: 400;
+    color: rgb(182, 182, 182);
+}
+.footer p a {
+    color: #2e2e2e;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.footer .footer-icons {
+    margin-left: auto;
+}
+.footer .footer-icons button {
+    margin: 1rem 1rem 1rem 0;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    color: #2e2e2e;
+} 
