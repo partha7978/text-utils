@@ -2,6 +2,7 @@ import './App.css';
 import AnimatedText from './components/AnimatedText/AnimatedText';
 import NavBar from './components/NavBar/NavBar';
 import TextArea from './components/TextArea/TextArea';
+import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <NavBar logoName="TEXTUTIL" theme={theme} setTheme={setTheme}/>
       <AnimatedText text="Welcome to TextUtils" secondaryText="I can do all kind of text manipulations" theme={theme} setTheme={setTheme}/>
       <TextArea label="Enter text here" theme={theme} setTheme={setTheme}/>
+      <Footer/>
     </>
   );
 }
