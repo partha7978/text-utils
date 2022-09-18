@@ -23,19 +23,18 @@
     flex-wrap: wrap;
 }
 .textContainer div .primary-heading {
-    background-image: linear-gradient(to right, #7F53AC, #647DEE);
+    /* background-image: linear-gradient(to right, #7F53AC, #647DEE);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     font-size: 2rem;
     font-weight: 500;
     margin: 0;
     letter-spacing: 2px;
     user-select: none;
+    color: #7F53AC;
 }
 .textContainer div .secondary-heading {
-    background-image: linear-gradient(to right, #7F53AC, #647DEE);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #7F53AC;
     font-size: 1rem;
     font-weight: 400;
     margin: 0;

@@ -41,8 +41,7 @@
     transition: all 0.2s linear;
 }
 .buttonSection button:hover {
-    color: #647DEE;
-    border-color: #647DEE;
+    border-color: #7F53AC;
     transform: translateY(-2px);
 }
 .buttonSection button svg {
@@ -75,7 +74,7 @@
 .previewHeading {
     width: 100%;
     border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right, #7F53AC, #647DEE);
+    border-image: linear-gradient(to right, #A88BEB, #F8CEEC);
     border-image-slice: 1;
 }
 .previewHeading h3 {

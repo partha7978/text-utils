@@ -32,10 +32,10 @@ code {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: -webkit-linear-gradient(315deg, #8490ff 0%, #62bdfc 74%);
+  background: -webkit-linear-gradient(315deg, #A88BEB, #F8CEEC);
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: -webkit-linear-gradient(315deg, #8490ff 0%, #62bdfc 74%);
+  background: -webkit-linear-gradient(315deg, #A88BEB, #F8CEEC);
 }
 /* SCROLL BAR ENDS */
