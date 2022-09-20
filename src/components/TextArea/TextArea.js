@@ -194,8 +194,8 @@ export default function TextArea(props) {
           <div className="text-summary-container">
             <div className="TextSummary">
               <h3>Your Text Summary</h3>
-              <span><b>{text.length < 1 && text.includes('') ? 0 : text.split(' ').length }</b> words & <b>{text.length}</b> characters</span>
-              <span><b>{0.008 * (text.length < 1 && text.includes('') ? 0 : text.split(' ').length)}</b> minutes reading time</span>
+              <span><b>{text.split(' ').filter((word) => {return word.length !== 0}).length }</b> words & <b>{text.length}</b> characters</span>
+              <span><b>{0.008 * (text.split(' ').filter((word) => {return word.length !== 0}).length )}</b> minutes reading time</span>
             </div>
           </div>
           <div className="ViewText">
