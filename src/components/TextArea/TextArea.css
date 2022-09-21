@@ -76,6 +76,16 @@
     border-bottom: 2px solid transparent;
     border-image: linear-gradient(to right, #A88BEB, #F8CEEC);
     border-image-slice: 1;
+    display: flex;
+}
+.previewHeading svg {
+    height: 1rem;
+    width:  1rem;
+    margin-left: auto;
+    transition: all 0.2s linear;
+}
+.previewHeading svg:hover {
+    color: #7F53AC;
 }
 .previewHeading h3 {
     margin: 0.2rem;
