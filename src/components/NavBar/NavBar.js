@@ -6,11 +6,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
 
-export default function NavBar( props) {
+export default function NavBar(props) {
   //?for framer motion 
   const words = props.logoName.split('');
-   // Variants for Container of words.
-   const container = {
+  // Variants for Container of words.
+  const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -18,7 +18,7 @@ export default function NavBar( props) {
     }),
   };
 
-// Variants for each word.
+  // Variants for each word.
   const child = {
     visible: {
       opacity: 1,
@@ -89,14 +89,14 @@ export default function NavBar( props) {
   }));
 
 
-//? for dark mode switch
+  //? for dark mode switch
   const handleChange = (event) => {
     props.setTheme(event.target.checked);
     console.log(event.target.checked);
   };
-  
+
   return (
-    <div className="navBar" style={{backgroundColor: props.theme === true ? '#171717':'#ffffff'}}>
+    <div className="navBar" style={{ backgroundColor: props.theme === true ? '#171717' : '#ffffff' }}>
       <motion.ul
         className="navBarUl"
         style={{ overflow: "hidden", display: "flex", fontSize: "2rem" }}
@@ -104,21 +104,21 @@ export default function NavBar( props) {
         initial="hidden"
         animate="visible"
       >
-       {words.map((word, index) => (
-      <motion.li
-        className="navBarLi"
-        variants={child}
-        key={index}
-      >
-        {word}
-      </motion.li>
-      ))}
+        {words.map((word, index) => (
+          <motion.li
+            className="navBarLi"
+            variants={child}
+            key={index}
+          >
+            {word}
+          </motion.li>
+        ))}
       </motion.ul>
-      
+
       <FormControlLabel
         control={<MaterialUISwitch checked={props.theme} onChange={handleChange} sx={{ m: 1 }} />}
       />
- 
+
     </div>
   )
 }
